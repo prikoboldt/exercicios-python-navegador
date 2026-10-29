@@ -68,70 +68,18 @@ window.EXERCICIOS_DADOS = [
  {
   "id": "06",
   "categoria": "Lógica de programação",
-  "titulo": "Fatorial",
-  "enunciado": "fatorial(n) retorna n!. 0! = 1. Números negativos retornam None.",
-  "dica": "Comece em 1 e multiplique de 1 até n. Se n < 0, retorne None.",
-  "funcoes": [
-   "fatorial"
-  ],
-  "codigoInicial": "\"\"\"\n06 — Fatorial\nRetorne o fatorial de n (n!).\n0! e 1! valem 1. Se n for negativo, retorne None.\n\"\"\"\n\n\ndef fatorial(n):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(fatorial, t):\n    t.igual(fatorial(0), 1, \"fatorial(0) — caso especial: por definição 0! = 1 (produto vazio)\")\n    t.igual(fatorial(1), 1, \"fatorial(1) — 1! = 1: o laço não precisa multiplicar nada\")\n    t.igual(fatorial(5), 120, \"fatorial(5) — 5 · 4 · 3 · 2 · 1: multiplicação acumulada\")\n    t.igual(fatorial(7), 5040, \"fatorial(7) — valor maior: confirma que o laço percorre todos os fatores\")\n    t.igual(fatorial(-2), None, \"fatorial(-2) — negativos não têm fatorial: entrada inválida, retorne None\")\n",
-  "gabarito": "def fatorial(n):\n    if n < 0:\n        return None\n\n    resultado = 1\n    for fator in range(2, n + 1):\n        resultado *= fator\n    return resultado\n"
- },
- {
-  "id": "07",
-  "categoria": "Lógica de programação",
-  "titulo": "Palíndromo",
-  "enunciado": "Ignore espaços e maiúsculas. 'Ame a ema' é palíndromo.",
-  "dica": "Remova os espaços, passe tudo para minúsculo e compare com a versão invertida (texto[::-1]).",
-  "funcoes": [
-   "eh_palindromo"
-  ],
-  "codigoInicial": "\"\"\"\n07 — Palíndromo\nRetorne True se o texto for palíndromo (lê igual de trás para frente).\nIgnore espaços e diferenças entre maiúsculas e minúsculas.\n\"\"\"\n\n\ndef eh_palindromo(texto):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(eh_palindromo, t):\n    t.verdadeiro(eh_palindromo(\"ovo\"), 'eh_palindromo(\"ovo\") — palíndromo simples, sem espaços nem maiúsculas')\n    t.falso(eh_palindromo(\"casa\"), 'eh_palindromo(\"casa\") — palavra diferente do seu inverso')\n    t.verdadeiro(eh_palindromo(\"Ame a ema\"), 'eh_palindromo(\"Ame a ema\") — ignore espaços e maiúsculas ao comparar')\n    t.verdadeiro(eh_palindromo(\"Radar\"), 'eh_palindromo(\"Radar\") — a maiúscula inicial não pode atrapalhar: normalize antes')\n    t.falso(eh_palindromo(\"python\"), 'eh_palindromo(\"python\") — texto longo que não é palíndromo')\n",
-  "gabarito": "def eh_palindromo(texto):\n    limpo = texto.replace(\" \", \"\").lower()\n    return limpo == limpo[::-1]\n"
- },
- {
-  "id": "08",
-  "categoria": "Lógica de programação",
-  "titulo": "FizzBuzz",
-  "enunciado": "De 1 até n: Fizz (3), Buzz (5), FizzBuzz (15), senão o número.",
-  "dica": "Teste o múltiplo de 15 primeiro, senão 15 vira só Fizz ou só Buzz.",
-  "funcoes": [
-   "fizz_buzz"
-  ],
-  "codigoInicial": "\"\"\"\n08 — FizzBuzz\nRetorne uma lista de 1 até n com as regras:\n- múltiplo de 3: \"Fizz\"\n- múltiplo de 5: \"Buzz\"\n- múltiplo de 3 e 5: \"FizzBuzz\"\n- demais: o próprio número\n\"\"\"\n\n\ndef fizz_buzz(n):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(fizz_buzz, t):\n    def elemento(lista, i):\n        return lista[i] if type(lista) is list and len(lista) > i else lista\n\n    t.igual(fizz_buzz(1), [1], \"fizz_buzz(1) — menor entrada: números comuns ficam como número, não como texto\")\n    t.igual(\n        fizz_buzz(5),\n        [1, 2, \"Fizz\", 4, \"Buzz\"],\n        \"fizz_buzz(5) — múltiplo de 3 vira 'Fizz' e múltiplo de 5 vira 'Buzz'\",\n    )\n    t.igual(\n        elemento(fizz_buzz(15), 14),\n        \"FizzBuzz\",\n        \"15º item (valor 15) — múltiplo de 3 e de 5: teste essa condição ANTES das individuais\",\n    )\n    t.igual(elemento(fizz_buzz(15), 2), \"Fizz\", \"3º item (valor 3) — primeiro múltiplo de 3\")\n    t.igual(elemento(fizz_buzz(15), 9), \"Buzz\", \"10º item (valor 10) — múltiplo de 5 que não é de 3\")\n",
-  "gabarito": "def fizz_buzz(n):\n    resultado = []\n    for i in range(1, n + 1):\n        if i % 15 == 0:\n            resultado.append(\"FizzBuzz\")\n        elif i % 3 == 0:\n            resultado.append(\"Fizz\")\n        elif i % 5 == 0:\n            resultado.append(\"Buzz\")\n        else:\n            resultado.append(i)\n    return resultado\n"
- },
- {
-  "id": "09",
-  "categoria": "Lógica de programação",
-  "titulo": "Fibonacci",
-  "enunciado": "fibonacci(0)=0, fibonacci(1)=1. Negativos retornam None.",
-  "dica": "Guarde os dois últimos valores e some até chegar em n. Evite recursão ingênua: ela é lenta e estoura o limite de recursão do Python.",
-  "funcoes": [
-   "fibonacci"
-  ],
-  "codigoInicial": "\"\"\"\n09 — Fibonacci\nRetorne o n-ésimo número da sequência de Fibonacci.\nfibonacci(0) = 0, fibonacci(1) = 1, fibonacci(2) = 1, ...\nSe n for negativo, retorne None.\n\"\"\"\n\n\ndef fibonacci(n):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(fibonacci, t):\n    t.igual(fibonacci(0), 0, \"fibonacci(0) — caso base: o primeiro termo da sequência é 0\")\n    t.igual(fibonacci(1), 1, \"fibonacci(1) — caso base: o segundo termo é 1\")\n    t.igual(fibonacci(2), 1, \"fibonacci(2) — primeiro termo calculado: 0 + 1\")\n    t.igual(fibonacci(7), 13, \"fibonacci(7) — cada termo é a soma dos dois anteriores\")\n    t.igual(fibonacci(10), 55, \"fibonacci(10) — valor maior: confirma que o laço (ou recursão) avança certo\")\n    t.igual(fibonacci(-1), None, \"fibonacci(-1) — posição negativa não existe: retorne None\")\n",
-  "gabarito": "def fibonacci(n):\n    if n < 0:\n        return None\n\n    anterior, atual = 0, 1\n    for _ in range(n):\n        anterior, atual = atual, anterior + atual\n    return anterior\n"
- },
- {
-  "id": "10",
-  "categoria": "Lógica de programação",
   "titulo": "Remover duplicados",
   "enunciado": "Mantenha a ordem da primeira ocorrência de cada valor.",
   "dica": "Percorra a lista e só adicione ao resultado o que ainda não apareceu (um set ajuda a lembrar). list(dict.fromkeys(lista)) também mantém a ordem.",
   "funcoes": [
    "remover_duplicados"
   ],
-  "codigoInicial": "\"\"\"\n10 — Remover duplicados\nRetorne uma NOVA lista sem valores repetidos, mantendo a ordem da primeira ocorrência.\n\"\"\"\n\n\ndef remover_duplicados(lista):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n06 — Remover duplicados\nRetorne uma NOVA lista sem valores repetidos, mantendo a ordem da primeira ocorrência.\n\"\"\"\n\n\ndef remover_duplicados(lista):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(remover_duplicados, t):\n    t.igual(remover_duplicados([1, 2, 2, 3]), [1, 2, 3], \"remover_duplicados([1, 2, 2, 3]) — repetido em sequência: mantém uma ocorrência\")\n    t.igual(remover_duplicados([\"a\", \"b\", \"a\"]), [\"a\", \"b\"], 'remover_duplicados([\"a\", \"b\", \"a\"]) — repetido separado: mantém a ordem da primeira aparição')\n    t.igual(remover_duplicados([]), [], \"remover_duplicados([]) — lista vazia: devolve lista vazia\")\n    t.igual(remover_duplicados([1, 1, 1]), [1], \"remover_duplicados([1, 1, 1]) — todos iguais: sobra um único elemento\")\n",
   "gabarito": "def remover_duplicados(lista):\n    vistos = set()\n    resultado = []\n    for valor in lista:\n        if valor not in vistos:\n            vistos.add(valor)\n            resultado.append(valor)\n    return resultado\n"
  },
  {
-  "id": "11",
+  "id": "07",
   "categoria": "Lógica de programação",
   "titulo": "Número primo",
   "enunciado": "Primos são maiores que 1 e só têm dois divisores: 1 e eles mesmos.",
@@ -139,12 +87,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "eh_primo"
   ],
-  "codigoInicial": "\"\"\"\n11 — Número primo\nRetorne True se o número for primo (maior que 1 e divisível só por 1 e por ele mesmo).\n\"\"\"\n\n\ndef eh_primo(numero):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n07 — Número primo\nRetorne True se o número for primo (maior que 1 e divisível só por 1 e por ele mesmo).\n\"\"\"\n\n\ndef eh_primo(numero):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(eh_primo, t):\n    t.falso(eh_primo(1), \"eh_primo(1) — 1 não é primo: primos têm exatamente dois divisores\")\n    t.falso(eh_primo(0), \"eh_primo(0) — zero não é primo (e é uma entrada válida: não pode quebrar o código)\")\n    t.falso(eh_primo(-3), \"eh_primo(-3) — negativos não são primos\")\n    t.verdadeiro(eh_primo(2), \"eh_primo(2) — menor primo e único par: cuidado com laços que o excluem\")\n    t.verdadeiro(eh_primo(13), \"eh_primo(13) — primo ímpar: nenhum divisor entre 2 e a raiz quadrada\")\n    t.falso(eh_primo(9), \"eh_primo(9) — quadrado de primo (3 × 3): o divisor é a própria raiz, use i * i <= numero\")\n    t.falso(eh_primo(15), \"eh_primo(15) — composto com divisor pequeno (3): é encontrado cedo\")\n    t.verdadeiro(eh_primo(17), \"eh_primo(17) — outro primo: confirma a verificação de divisores\")\n",
   "gabarito": "def eh_primo(numero):\n    if numero <= 1:\n        return False\n\n    divisor = 2\n    while divisor * divisor <= numero:\n        if numero % divisor == 0:\n            return False\n        divisor += 1\n    return True\n"
  },
  {
-  "id": "12",
+  "id": "08",
   "categoria": "Lógica de programação",
   "titulo": "Anagrama",
   "enunciado": "Mesmas letras na mesma quantidade, ignorando maiúsculas e espaços.",
@@ -152,12 +100,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "eh_anagrama"
   ],
-  "codigoInicial": "\"\"\"\n12 — Anagrama\nRetorne True se as duas palavras forem anagramas\n(mesmas letras, mesma quantidade, ignorando maiúsculas/minúsculas e espaços).\n\"\"\"\n\n\ndef eh_anagrama(a, b):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n08 — Anagrama\nRetorne True se as duas palavras forem anagramas\n(mesmas letras, mesma quantidade, ignorando maiúsculas/minúsculas e espaços).\n\"\"\"\n\n\ndef eh_anagrama(a, b):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(eh_anagrama, t):\n    t.verdadeiro(eh_anagrama(\"roma\", \"amor\"), 'eh_anagrama(\"roma\", \"amor\") — mesmas letras em ordem diferente')\n    t.falso(eh_anagrama(\"casa\", \"caso\"), 'eh_anagrama(\"casa\", \"caso\") — uma letra diferente desfaz o anagrama')\n    t.verdadeiro(eh_anagrama(\"Listen\", \"Silent\"), 'eh_anagrama(\"Listen\", \"Silent\") — ignore diferença entre maiúsculas e minúsculas')\n    t.verdadeiro(eh_anagrama(\"a gentleman\", \"elegant man\"), 'eh_anagrama(\"a gentleman\", \"elegant man\") — ignore os espaços entre as palavras')\n    t.falso(eh_anagrama(\"abc\", \"ab\"), 'eh_anagrama(\"abc\", \"ab\") — quantidades de letras diferentes nunca formam anagrama')\n",
   "gabarito": "def eh_anagrama(a, b):\n    letras_a = sorted(a.replace(\" \", \"\").lower())\n    letras_b = sorted(b.replace(\" \", \"\").lower())\n    return letras_a == letras_b\n"
  },
  {
-  "id": "13",
+  "id": "09",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Busca linear",
   "enunciado": "Retorne o índice da primeira ocorrência, ou -1 se não existir.",
@@ -165,12 +113,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "busca_linear"
   ],
-  "codigoInicial": "\"\"\"\n13 — Busca linear\nPercorra a lista e retorne o índice da primeira ocorrência de alvo.\nSe não existir, retorne -1.\n\"\"\"\n\n\ndef busca_linear(lista, alvo):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n09 — Busca linear\nPercorra a lista e retorne o índice da primeira ocorrência de alvo.\nSe não existir, retorne -1.\n\"\"\"\n\n\ndef busca_linear(lista, alvo):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(busca_linear, t):\n    t.igual(busca_linear([4, 8, 15, 16], 15), 2, \"busca_linear([4, 8, 15, 16], 15) — caso básico: devolve o índice onde o valor está\")\n    t.igual(busca_linear([4, 8, 15, 16], 4), 0, \"primeira posição — o índice 0 é válido, não confunda com 'não achou'\")\n    t.igual(busca_linear([1, 2, 2, 3], 2), 1, \"valor repetido — pare na primeira ocorrência\")\n    t.igual(busca_linear([1, 2, 3], 9), -1, \"valor ausente — -1 sinaliza 'não encontrado'\")\n    t.igual(busca_linear([], 1), -1, \"lista vazia — o laço nem executa e o retorno deve ser -1\")\n",
   "gabarito": "def busca_linear(lista, alvo):\n    for indice, valor in enumerate(lista):\n        if valor == alvo:\n            return indice\n    return -1\n"
  },
  {
-  "id": "14",
+  "id": "10",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Busca binária",
   "enunciado": "A lista está ordenada. Encontre o índice de alvo em tempo logarítmico.",
@@ -178,12 +126,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "busca_binaria"
   ],
-  "codigoInicial": "\"\"\"\n14 — Busca binária\nA lista já está ordenada em ordem crescente.\nRetorne o índice de alvo, ou -1 se não existir.\nUse divisão do intervalo (meio), sem percorrer um a um.\n\"\"\"\n\n\ndef busca_binaria(lista, alvo):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n10 — Busca binária\nA lista já está ordenada em ordem crescente.\nRetorne o índice de alvo, ou -1 se não existir.\nUse divisão do intervalo (meio), sem percorrer um a um.\n\"\"\"\n\n\ndef busca_binaria(lista, alvo):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(busca_binaria, t):\n    t.igual(busca_binaria([1, 3, 5, 7, 9], 7), 3, \"busca_binaria([1, 3, 5, 7, 9], 7) — caso básico: compara com o meio e descarta metade\")\n    t.igual(busca_binaria([1, 3, 5, 7, 9], 1), 0, \"primeiro item — a busca chega à extremidade esquerda\")\n    t.igual(busca_binaria([1, 3, 5, 7, 9], 9), 4, \"último item — a busca chega à extremidade direita\")\n    t.igual(busca_binaria([1, 3, 5, 7, 9], 4), -1, \"valor entre dois itens — termina quando inicio passa de fim\")\n    t.igual(busca_binaria([], 1), -1, \"lista vazia — fim começa em -1 e o laço não chega a rodar\")\n    t.igual(busca_binaria([10], 10), 0, \"lista com um item — inicio e fim coincidem e ainda precisam ser verificados (<=)\")\n",
   "gabarito": "def busca_binaria(lista, alvo):\n    inicio, fim = 0, len(lista) - 1\n    while inicio <= fim:\n        meio = (inicio + fim) // 2\n        if lista[meio] == alvo:\n            return meio\n        if lista[meio] < alvo:\n            inicio = meio + 1\n        else:\n            fim = meio - 1\n    return -1\n"
  },
  {
-  "id": "15",
+  "id": "11",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Ordenação por seleção",
   "enunciado": "Devolva uma nova lista crescente. Não use sorted() nem list.sort() e não altere a original.",
@@ -191,12 +139,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "ordenar_selecao"
   ],
-  "codigoInicial": "\"\"\"\n15 — Ordenação por seleção\nRetorne uma NOVA lista com os números em ordem crescente.\nNão use sorted() nem list.sort(). Não altere a lista original.\n\"\"\"\n\n\ndef ordenar_selecao(lista):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n11 — Ordenação por seleção\nRetorne uma NOVA lista com os números em ordem crescente.\nNão use sorted() nem list.sort(). Não altere a lista original.\n\"\"\"\n\n\ndef ordenar_selecao(lista):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(ordenar_selecao, t):\n    original = [3, 1, 2]\n    t.igual(ordenar_selecao(original), [1, 2, 3], \"ordenar_selecao([3, 1, 2]) — caso básico: ordem crescente\")\n    t.igual(original, [3, 1, 2], \"lista original — não deve ser alterada: trabalhe em uma cópia\")\n    t.igual(ordenar_selecao([]), [], \"lista vazia — nada para ordenar\")\n    t.igual(ordenar_selecao([7]), [7], \"um item — já está ordenado\")\n    t.igual(ordenar_selecao([-2, 10, -2, 0, 2]), [-2, -2, 0, 2, 10], \"negativos, zero, repetidos e 2 dígitos — o menor de cada trecho precisa ser escolhido corretamente\")\n",
   "gabarito": "def ordenar_selecao(lista):\n    resultado = list(lista)\n    for i in range(len(resultado)):\n        menor = i\n        for j in range(i + 1, len(resultado)):\n            if resultado[j] < resultado[menor]:\n                menor = j\n        resultado[i], resultado[menor] = resultado[menor], resultado[i]\n    return resultado\n"
  },
  {
-  "id": "16",
+  "id": "12",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Mesclar listas ordenadas",
   "enunciado": "Una duas listas já ordenadas em uma terceira, também ordenada.",
@@ -204,12 +152,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "mesclar_ordenados"
   ],
-  "codigoInicial": "\"\"\"\n16 — Mesclar listas ordenadas\na e b já estão em ordem crescente.\nRetorne uma nova lista com todos os valores, também ordenada.\nUse dois ponteiros; não concatene e depois ordene.\n\"\"\"\n\n\ndef mesclar_ordenados(a, b):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n12 — Mesclar listas ordenadas\na e b já estão em ordem crescente.\nRetorne uma nova lista com todos os valores, também ordenada.\nUse dois ponteiros; não concatene e depois ordene.\n\"\"\"\n\n\ndef mesclar_ordenados(a, b):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(mesclar_ordenados, t):\n    t.igual(mesclar_ordenados([1, 3, 5], [2, 4, 6]), [1, 2, 3, 4, 5, 6], \"mesclar [1, 3, 5] e [2, 4, 6] — dois ponteiros: copie sempre o menor dos dois da frente\")\n    t.igual(mesclar_ordenados([], [1, 2]), [1, 2], \"primeira lista vazia — devolve o restante da segunda\")\n    t.igual(mesclar_ordenados([1, 2], []), [1, 2], \"segunda lista vazia — devolve o restante da primeira\")\n    t.igual(mesclar_ordenados([1, 1], [1, 2]), [1, 1, 1, 2], \"valores repetidos — os repetidos das duas listas são mantidos\")\n    t.igual(mesclar_ordenados([-5, 0], [-2, 4]), [-5, -2, 0, 4], \"negativos e zero — seguem a mesma comparação\")\n",
   "gabarito": "def mesclar_ordenados(a, b):\n    resultado = []\n    i = j = 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            resultado.append(a[i])\n            i += 1\n        else:\n            resultado.append(b[j])\n            j += 1\n    resultado.extend(a[i:])\n    resultado.extend(b[j:])\n    return resultado\n"
  },
  {
-  "id": "17",
+  "id": "13",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Pilha (LIFO)",
   "enunciado": "Último a entrar é o primeiro a sair: empilhar, desempilhar, topo, vazia, tamanho.",
@@ -217,12 +165,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "Pilha"
   ],
-  "codigoInicial": "\"\"\"\n17 — Pilha (LIFO)\nImplemente a classe Pilha com os métodos:\n- empilhar(valor)\n- desempilhar() → remove e retorna o topo, ou None se vazia\n- topo() → olha o topo sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Pilha:\n    def __init__(self):\n        # implemente aqui\n        pass\n",
+  "codigoInicial": "\"\"\"\n13 — Pilha (LIFO)\nImplemente a classe Pilha com os métodos:\n- empilhar(valor)\n- desempilhar() → remove e retorna o topo, ou None se vazia\n- topo() → olha o topo sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Pilha:\n    def __init__(self):\n        # implemente aqui\n        pass\n",
   "fonteTeste": "def testar(Pilha, t):\n    pilha = Pilha()\n    t.verdadeiro(pilha.vazia(), \"vazia() — estado inicial: uma pilha recém-criada não tem itens\")\n    t.igual(pilha.tamanho(), 0, \"tamanho() — zero é um tamanho válido: pilha vazia tem 0 itens\")\n    t.igual(pilha.desempilhar(), None, \"desempilhar() numa pilha vazia não quebra: devolve None\")\n\n    pilha.empilhar(10)\n    pilha.empilhar(20)\n    t.igual(pilha.topo(), 20, \"topo() — mostra o último item empilhado (20) sem removê-lo\")\n    t.igual(pilha.tamanho(), 2, \"tamanho() — cada empilhar aumenta o tamanho em 1\")\n    t.falso(pilha.vazia(), \"vazia() — com itens guardados deve ser False\")\n    t.igual(pilha.desempilhar(), 20, \"LIFO — o último a entrar (20) é o primeiro a sair\")\n    t.igual(pilha.desempilhar(), 10, \"desempilhar() — em seguida sai o item anterior (10)\")\n    t.verdadeiro(pilha.vazia(), \"vazia() — ao retirar tudo, a pilha volta ao estado vazio\")\n",
   "gabarito": "class Pilha:\n    def __init__(self):\n        self._itens = []\n\n    def empilhar(self, valor):\n        self._itens.append(valor)\n\n    def desempilhar(self):\n        if not self._itens:\n            return None\n        return self._itens.pop()\n\n    def topo(self):\n        if not self._itens:\n            return None\n        return self._itens[-1]\n\n    def vazia(self):\n        return len(self._itens) == 0\n\n    def tamanho(self):\n        return len(self._itens)\n"
  },
  {
-  "id": "18",
+  "id": "14",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Fila (FIFO)",
   "enunciado": "Primeiro a entrar é o primeiro a sair: enfileirar, desenfileirar, frente, vazia, tamanho.",
@@ -230,12 +178,12 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "Fila"
   ],
-  "codigoInicial": "\"\"\"\n18 — Fila (FIFO)\nImplemente a classe Fila com os métodos:\n- enfileirar(valor)\n- desenfileirar() → remove e retorna o primeiro, ou None se vazia\n- frente() → olha o primeiro sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Fila:\n    def __init__(self):\n        # implemente aqui\n        pass\n",
+  "codigoInicial": "\"\"\"\n14 — Fila (FIFO)\nImplemente a classe Fila com os métodos:\n- enfileirar(valor)\n- desenfileirar() → remove e retorna o primeiro, ou None se vazia\n- frente() → olha o primeiro sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Fila:\n    def __init__(self):\n        # implemente aqui\n        pass\n",
   "fonteTeste": "def testar(Fila, t):\n    fila = Fila()\n    t.verdadeiro(fila.vazia(), \"vazia() — estado inicial: uma fila recém-criada não tem itens\")\n    t.igual(fila.desenfileirar(), None, \"desenfileirar() numa fila vazia não quebra: devolve None\")\n    t.igual(fila.frente(), None, \"frente() numa fila vazia também devolve None\")\n\n    fila.enfileirar(\"a\")\n    fila.enfileirar(\"b\")\n    fila.enfileirar(\"c\")\n    t.igual(fila.frente(), \"a\", \"frente() — mostra o primeiro que entrou, sem removê-lo\")\n    t.igual(fila.tamanho(), 3, \"tamanho() — três itens enfileirados\")\n    t.igual(fila.desenfileirar(), \"a\", \"FIFO — o primeiro a entrar ('a') é o primeiro a sair\")\n    t.igual(fila.desenfileirar(), \"b\", \"desenfileirar() — depois sai o segundo ('b')\")\n    t.igual(fila.frente(), \"c\", \"frente() — resta apenas 'c' no início da fila\")\n",
   "gabarito": "from collections import deque\n\n\nclass Fila:\n    def __init__(self):\n        self._itens = deque()\n\n    def enfileirar(self, valor):\n        self._itens.append(valor)\n\n    def desenfileirar(self):\n        if not self._itens:\n            return None\n        return self._itens.popleft()\n\n    def frente(self):\n        if not self._itens:\n            return None\n        return self._itens[0]\n\n    def vazia(self):\n        return len(self._itens) == 0\n\n    def tamanho(self):\n        return len(self._itens)\n"
  },
  {
-  "id": "19",
+  "id": "15",
   "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Elemento mais frequente",
   "enunciado": "Use um dicionário de contagem. Em empate, fique com quem apareceu primeiro.",
@@ -243,7 +191,7 @@ window.EXERCICIOS_DADOS = [
   "funcoes": [
    "mais_frequente"
   ],
-  "codigoInicial": "\"\"\"\n21 — Elemento mais frequente (dicionário)\nRetorne o valor que mais aparece na lista.\nEm empate, retorne o que apareceu primeiro.\nLista vazia → None.\n\"\"\"\n\n\ndef mais_frequente(lista):\n    # implemente aqui\n    pass\n",
+  "codigoInicial": "\"\"\"\n15 — Elemento mais frequente (dicionário)\nRetorne o valor que mais aparece na lista.\nEm empate, retorne o que apareceu primeiro.\nLista vazia → None.\n\"\"\"\n\n\ndef mais_frequente(lista):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(mais_frequente, t):\n    t.igual(mais_frequente([1, 3, 1, 3, 1]), 1, \"mais_frequente([1, 3, 1, 3, 1]) — contagem: o 1 aparece 3 vezes, mais que o 3 (2 vezes)\")\n    t.igual(mais_frequente([\"a\", \"b\", \"b\", \"a\"]), \"a\", \"empate — vence quem aparece primeiro na lista\")\n    t.igual(mais_frequente([7]), 7, \"um item — ele mesmo é o mais frequente\")\n    t.igual(mais_frequente([]), None, \"lista vazia — não há elemento mais frequente: retorne None\")\n    t.igual(mais_frequente([\"x\", \"y\", \"y\", \"z\"]), \"y\", \"textos — funciona com qualquer tipo: 'y' aparece duas vezes\")\n",
   "gabarito": "def mais_frequente(lista):\n    if not lista:\n        return None\n\n    contagem = {}\n    for valor in lista:\n        contagem[valor] = contagem.get(valor, 0) + 1\n\n    mais = lista[0]\n    for valor in lista:\n        if contagem[valor] > contagem[mais]:\n            mais = valor\n    return mais\n"
  }

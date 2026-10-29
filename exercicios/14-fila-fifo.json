@@ -1,0 +1,11 @@
+{
+    "id":  "14",
+    "categoria":  "Algoritmos e estruturas de dados",
+    "titulo":  "Fila (FIFO)",
+    "enunciado":  "Primeiro a entrar é o primeiro a sair: enfileirar, desenfileirar, frente, vazia, tamanho.",
+    "dica":  "Guarde os itens em uma lista. enfileirar = append no fim, desenfileirar = pop(0) no início (ou use collections.deque).",
+    "funcoes":  [
+                    "Fila"
+                ],
+    "codigoInicial":  "\"\"\"\n14 — Fila (FIFO)\nImplemente a classe Fila com os métodos:\n- enfileirar(valor)\n- desenfileirar() → remove e retorna o primeiro, ou None se vazia\n- frente() → olha o primeiro sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Fila:\n    def __init__(self):\n        # implemente aqui\n        pass\n"
+}

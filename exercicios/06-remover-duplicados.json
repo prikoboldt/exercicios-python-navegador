@@ -1,0 +1,11 @@
+{
+    "id":  "06",
+    "categoria":  "Lógica de programação",
+    "titulo":  "Remover duplicados",
+    "enunciado":  "Mantenha a ordem da primeira ocorrência de cada valor.",
+    "dica":  "Percorra a lista e só adicione ao resultado o que ainda não apareceu (um set ajuda a lembrar). list(dict.fromkeys(lista)) também mantém a ordem.",
+    "funcoes":  [
+                    "remover_duplicados"
+                ],
+    "codigoInicial":  "\"\"\"\n06 — Remover duplicados\nRetorne uma NOVA lista sem valores repetidos, mantendo a ordem da primeira ocorrência.\n\"\"\"\n\n\ndef remover_duplicados(lista):\n    # implemente aqui\n    pass\n"
+}
