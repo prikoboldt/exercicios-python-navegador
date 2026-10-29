@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Exercícios de lógica e estruturas — Python</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Ir para o exercício</a>
+    <a class="pular" href="#editor">Ir para o editor de código</a>
+    <p class="sr-only" id="anuncio" role="status" aria-live="polite" aria-atomic="true"></p>
+
+    <div class="app">
+      <div class="sidebar">
+        <header class="brand">
+          <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M13 8C10 8 10 10 10 12V14C10 15.5 9 16 8 16C9 16 10 16.5 10 18V20C10 22 10 24 13 24M19 8C22 8 22 10 22 12V14C22 15.5 23 16 24 16C23 16 22 16.5 22 18V20C22 22 22 24 19 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div>
+            <h1>Exercícios</h1>
+            <p>Lógica, algoritmos e estruturas</p>
+          </div>
+        </header>
+
+        <p class="progresso" id="progresso">…</p>
+
+        <nav class="lista" id="lista-exercicios" aria-label="Lista de exercícios"></nav>
+
+        <footer class="parceria">Uma parceria entre a PrograMaria Encontros e o Grupo Boticario</footer>
+      </div>
+
+      <main class="principal" id="conteudo" tabindex="-1">
+        <header class="cabecalho">
+          <p class="categoria" id="categoria"></p>
+          <h2 id="titulo" tabindex="-1">Carregando…</h2>
+          <p class="enunciado" id="enunciado"></p>
+        </header>
+
+        <section class="editor-area" aria-labelledby="rotulo-editor">
+          <div class="barra-editor">
+            <label class="rotulo" id="rotulo-editor" for="editor">Seu código (Python)</label>
+            <div class="ferramentas">
+              <button type="button" class="botao secundario" id="btn-gabarito">Ver gabarito</button>
+              <button type="button" class="botao secundario" id="btn-resetar">Restaurar código inicial</button>
+            </div>
+          </div>
+          <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off" translate="no" aria-describedby="atalhos"></textarea>
+          <div class="rodape-editor">
+            <p class="salvamento" id="salvamento"></p>
+            <button type="button" class="botao primario" id="btn-testar">Rodar testes</button>
+          </div>
+        </section>
+
+        <section class="resultados-area" aria-labelledby="titulo-resultados">
+          <h3 id="titulo-resultados">Resultado dos testes</h3>
+          <div class="resultados" id="resultados">
+            <p class="vazio">Carregando exercícios do servidor…</p>
+          </div>
+        </section>
+
+        <section class="gabarito-area" id="gabarito-area" aria-labelledby="titulo-gabarito" hidden>
+          <h3 id="titulo-gabarito" tabindex="-1">Gabarito</h3>
+          <p class="gabarito-aviso">Esta é uma solução possível; existem outras formas corretas de resolver. Ver o gabarito não marca o exercício como concluído.</p>
+          <pre class="gabarito-codigo" tabindex="0" aria-label="Código do gabarito" translate="no"><code id="gabarito-codigo"></code></pre>
+          <button type="button" class="botao secundario" id="btn-ocultar-gabarito">Ocultar gabarito</button>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="dialogo" id="dialogo-gabarito" aria-labelledby="dialogo-titulo" aria-describedby="dialogo-texto">
+      <div class="dialogo-corpo">
+        <h2 id="dialogo-titulo">Ver o gabarito?</h2>
+        <p id="dialogo-texto">
+          Tem certeza que quer ver a resposta? Tentar resolver por conta própria é o que mais ajuda a aprender.
+          Se estiver com dificuldade, rode os testes: a dica aparece quando algum deles falha.
+        </p>
+        <div class="dialogo-acoes">
+          <button type="button" class="botao primario" id="btn-cancelar-gabarito" autofocus>Não, continuar tentando</button>
+          <button type="button" class="botao secundario" id="btn-confirmar-gabarito">Sim, mostrar a resposta</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="js/exercicios-dados.js"></script>
+    <script src="js/armazenamento.js"></script>
+    <script src="js/validador.js"></script>
+    <script src="js/tela.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

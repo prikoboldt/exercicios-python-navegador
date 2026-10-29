@@ -1,0 +1,11 @@
+def testar(media, t):
+    t.igual(media([2, 4, 6]), 4, "media([2, 4, 6]) — caso básico: (2 + 4 + 6) / 3 = 4")
+    t.igual(media([1, 2, 3, 4]), 2.5, "media([1, 2, 3, 4]) — a média pode ser decimal: não arredonde o resultado")
+    t.igual(media([7]), 7, "media([7]) — um único elemento: a média é o próprio valor")
+    t.igual(media([0, 0, 0]), 0, "media([0, 0, 0]) — só zeros: a média é 0, e 0 é um resultado válido")
+    t.igual(media([0, 10]), 5, "media([0, 10]) — o zero conta na divisão: (0 + 10) / 2, e não 10 / 1")
+    t.igual(media([2, 4, 6, 0]), 3, "media([2, 4, 6, 0]) — zero no meio da lista também entra na quantidade de itens")
+    t.igual(media([-4, 10]), 3, "media([-4, 10]) — número negativo: o sinal faz parte da soma")
+    t.igual(media([-3, 3]), 0, "media([-3, 3]) — opostos se anulam: a soma e a média são 0")
+    t.igual(media([1.5, 2.5]), 2, "media([1.5, 2.5]) — decimais: a média não se limita a inteiros")
+    t.igual(media([]), 0, "media([]) — lista vazia: retorne 0 em vez de dividir por zero (ZeroDivisionError)")

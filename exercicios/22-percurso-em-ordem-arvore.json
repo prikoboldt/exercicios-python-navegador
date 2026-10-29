@@ -1,0 +1,11 @@
+{
+  "id": "22",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Percurso em ordem (árvore)",
+  "enunciado": "Visite esquerda, depois o nó, depois a direita. Árvore vazia retorna [].",
+  "dica": "Função recursiva: em_ordem(raiz.esquerda) + [raiz.valor] + em_ordem(raiz.direita). Caso base: None → [].",
+  "funcoes": [
+    "em_ordem"
+  ],
+  "codigoInicial": "\"\"\"\n22 — Percurso em ordem (árvore binária)\nCada nó tem os atributos valor, esquerda e direita (os filhos podem ser None).\nRetorne os valores em ordem: esquerda → nó → direita.\nÁrvore vazia (None) → [].\n\"\"\"\n\n\ndef em_ordem(raiz):\n    # implemente aqui\n    pass\n"
+}

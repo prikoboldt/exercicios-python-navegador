@@ -1,0 +1,11 @@
+{
+  "id": "03",
+  "categoria": "Lógica de programação",
+  "titulo": "Maior número da lista",
+  "enunciado": "maior_numero(numeros) retorna o maior valor, ou None se a lista estiver vazia.",
+  "dica": "Percorra a lista guardando o maior até agora. Trate [] retornando None. Cuidado: começar o maior em 0 falha quando todos os números são negativos.",
+  "funcoes": [
+    "maior_numero"
+  ],
+  "codigoInicial": "\"\"\"\n03 — Maior número\nRetorne o maior valor da lista. Se a lista estiver vazia, retorne None.\n\"\"\"\n\n\ndef maior_numero(numeros):\n    # implemente aqui\n    pass\n"
+}

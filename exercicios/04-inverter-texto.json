@@ -1,0 +1,11 @@
+{
+  "id": "04",
+  "categoria": "Lógica de programação",
+  "titulo": "Inverter texto",
+  "enunciado": "inverter_texto(\"ola\") deve retornar \"alo\".",
+  "dica": "Você pode percorrer a string de trás para frente ou usar o fatiamento texto[::-1].",
+  "funcoes": [
+    "inverter_texto"
+  ],
+  "codigoInicial": "\"\"\"\n04 — Inverter texto\nRetorne a string invertida. Exemplo: \"ola\" → \"alo\"\n\"\"\"\n\n\ndef inverter_texto(texto):\n    # implemente aqui\n    pass\n"
+}

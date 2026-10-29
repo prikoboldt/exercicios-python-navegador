@@ -1,0 +1,11 @@
+{
+  "id": "02",
+  "categoria": "Lógica de programação",
+  "titulo": "Par ou ímpar",
+  "enunciado": "eh_par(numero) deve retornar True para pares e False para ímpares.",
+  "dica": "O resto da divisão por 2 (numero % 2) é 0 quando o número é par. Retorne um booleano: a comparação numero % 2 == 0 já devolve True ou False.",
+  "funcoes": [
+    "eh_par"
+  ],
+  "codigoInicial": "\"\"\"\n02 — Par ou ímpar\nRetorne True se o número for par, e False se for ímpar.\n\"\"\"\n\n\ndef eh_par(numero):\n    # implemente aqui\n    pass\n"
+}

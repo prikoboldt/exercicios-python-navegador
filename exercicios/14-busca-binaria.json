@@ -1,0 +1,11 @@
+{
+  "id": "14",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Busca binária",
+  "enunciado": "A lista está ordenada. Encontre o índice de alvo em tempo logarítmico.",
+  "dica": "Mantenha inicio e fim. Compare o meio ((inicio + fim) // 2): se for menor que o alvo, descarte a metade esquerda.",
+  "funcoes": [
+    "busca_binaria"
+  ],
+  "codigoInicial": "\"\"\"\n14 — Busca binária\nA lista já está ordenada em ordem crescente.\nRetorne o índice de alvo, ou -1 se não existir.\nUse divisão do intervalo (meio), sem percorrer um a um.\n\"\"\"\n\n\ndef busca_binaria(lista, alvo):\n    # implemente aqui\n    pass\n"
+}

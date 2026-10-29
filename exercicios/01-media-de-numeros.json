@@ -1,0 +1,11 @@
+{
+  "id": "01",
+  "categoria": "Lógica de programação",
+  "titulo": "Média de uma lista de números",
+  "enunciado": "Implemente media(numeros), que recebe uma lista de números e retorna a média aritmética deles. Se a lista estiver vazia, retorne 0. O 0 é um número válido: ele conta no cálculo, não é um valor 'vazio'.",
+  "dica": "Some todos os valores e divida pela quantidade (len(numeros)). Zero conta na divisão, então não o descarte. Em uma lista vazia, retorne 0 antes de dividir: dividir por zero gera ZeroDivisionError. Sem return a função devolve None.",
+  "funcoes": [
+    "media"
+  ],
+  "codigoInicial": "\"\"\"\n01 — Média\nRetorne a média aritmética dos números da lista.\nSe a lista estiver vazia, retorne 0.\nO zero é um valor válido e conta no cálculo.\n\"\"\"\n\n\ndef media(numeros):\n    # implemente aqui\n    pass\n"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "06",
+  "categoria": "Lógica de programação",
+  "titulo": "Fatorial",
+  "enunciado": "fatorial(n) retorna n!. 0! = 1. Números negativos retornam None.",
+  "dica": "Comece em 1 e multiplique de 1 até n. Se n < 0, retorne None.",
+  "funcoes": [
+    "fatorial"
+  ],
+  "codigoInicial": "\"\"\"\n06 — Fatorial\nRetorne o fatorial de n (n!).\n0! e 1! valem 1. Se n for negativo, retorne None.\n\"\"\"\n\n\ndef fatorial(n):\n    # implemente aqui\n    pass\n"
+}

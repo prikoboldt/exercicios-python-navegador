@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "categoria": "Lógica de programação",
+  "titulo": "Número primo",
+  "enunciado": "Primos são maiores que 1 e só têm dois divisores: 1 e eles mesmos.",
+  "dica": "Números <= 1 não são primos. Basta testar divisores até a raiz quadrada (enquanto i * i <= numero).",
+  "funcoes": [
+    "eh_primo"
+  ],
+  "codigoInicial": "\"\"\"\n11 — Número primo\nRetorne True se o número for primo (maior que 1 e divisível só por 1 e por ele mesmo).\n\"\"\"\n\n\ndef eh_primo(numero):\n    # implemente aqui\n    pass\n"
+}

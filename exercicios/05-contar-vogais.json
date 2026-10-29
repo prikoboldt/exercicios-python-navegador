@@ -1,0 +1,11 @@
+{
+  "id": "05",
+  "categoria": "Lógica de programação",
+  "titulo": "Contar vogais",
+  "enunciado": "Conte a, e, i, o, u ignorando maiúsculas. Não conte acentos neste exercício.",
+  "dica": "Normalize com .lower() e some 1 para cada letra que esteja em \"aeiou\".",
+  "funcoes": [
+    "contar_vogais"
+  ],
+  "codigoInicial": "\"\"\"\n05 — Contar vogais\nConte quantas vogais (a, e, i, o, u) existem no texto.\nIgnore maiúsculas/minúsculas. Não conte acentos como vogal neste exercício.\n\"\"\"\n\n\ndef contar_vogais(texto):\n    # implemente aqui\n    pass\n"
+}
