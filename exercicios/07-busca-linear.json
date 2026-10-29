@@ -1,0 +1,11 @@
+{
+  "id": "07",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Busca linear",
+  "enunciado": "Retorne o índice da primeira ocorrência, ou -1 se não existir.",
+  "dica": "Percorra com um for (range(len(lista)) ou enumerate) e compare lista[i] == alvo. Se terminar o laço, retorne -1.",
+  "funcoes": [
+    "busca_linear"
+  ],
+  "codigoInicial": "\"\"\"\n07 — Busca linear\nPercorra a lista e retorne o índice da primeira ocorrência de alvo.\nSe não existir, retorne -1.\n\"\"\"\n\n\ndef busca_linear(lista, alvo):\n    # implemente aqui\n    pass\n"
+}

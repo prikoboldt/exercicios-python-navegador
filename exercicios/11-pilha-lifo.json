@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Pilha (LIFO)",
+  "enunciado": "Último a entrar é o primeiro a sair: empilhar, desempilhar, topo, vazia, tamanho.",
+  "dica": "Guarde os itens em uma lista. empilhar = append, desempilhar = pop (cuidado com a pilha vazia), topo = último item.",
+  "funcoes": [
+    "Pilha"
+  ],
+  "codigoInicial": "\"\"\"\n11 — Pilha (LIFO)\nImplemente a classe Pilha com os métodos:\n- empilhar(valor)\n- desempilhar() → remove e retorna o topo, ou None se vazia\n- topo() → olha o topo sem remover, ou None se vazia\n- vazia() → True/False\n- tamanho() → quantidade de itens\n\"\"\"\n\n\nclass Pilha:\n    def __init__(self):\n        # implemente aqui\n        pass\n"
+}

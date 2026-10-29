@@ -1,0 +1,11 @@
+{
+  "id": "10",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Mesclar listas ordenadas",
+  "enunciado": "Una duas listas já ordenadas em uma terceira, também ordenada.",
+  "dica": "Dois ponteiros: sempre copie o menor entre a[i] e b[j]. No fim, copie o que sobrou.",
+  "funcoes": [
+    "mesclar_ordenados"
+  ],
+  "codigoInicial": "\"\"\"\n10 — Mesclar listas ordenadas\na e b já estão em ordem crescente.\nRetorne uma nova lista com todos os valores, também ordenada.\nUse dois ponteiros; não concatene e depois ordene.\n\"\"\"\n\n\ndef mesclar_ordenados(a, b):\n    # implemente aqui\n    pass\n"
+}

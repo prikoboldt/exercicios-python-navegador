@@ -1,0 +1,11 @@
+{
+  "id": "09",
+  "categoria": "Algoritmos e estruturas de dados",
+  "titulo": "Ordenação por seleção",
+  "enunciado": "Devolva uma nova lista crescente. Não use sorted() nem list.sort() e não altere a original.",
+  "dica": "A cada passo, ache o menor do trecho restante e troque com a posição atual. Copie a lista antes (lista[:] ou list(lista)).",
+  "funcoes": [
+    "ordenar_selecao"
+  ],
+  "codigoInicial": "\"\"\"\n09 — Ordenação por seleção\nRetorne uma NOVA lista com os números em ordem crescente.\nNão use sorted() nem list.sort(). Não altere a lista original.\n\"\"\"\n\n\ndef ordenar_selecao(lista):\n    # implemente aqui\n    pass\n"
+}
