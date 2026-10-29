@@ -237,32 +237,6 @@ window.EXERCICIOS_DADOS = [
  {
   "id": "19",
   "categoria": "Algoritmos e estruturas de dados",
-  "titulo": "Lista ligada",
-  "enunciado": "Nós com valor e proximo. Implemente inserir_inicio, inserir_fim e para_lista.",
-  "dica": "inserir_inicio cria um nó e aponta proximo para o antigo inicio. inserir_fim percorre até o último nó (ou inicio, se a lista estiver vazia).",
-  "funcoes": [
-   "ListaLigada"
-  ],
-  "codigoInicial": "\"\"\"\n19 — Lista ligada\nCada nó guarda um valor e uma referência para o proximo (ou None no último).\nImplemente a classe ListaLigada com:\n- o atributo inicio (começa como None)\n- inserir_inicio(valor)\n- inserir_fim(valor)\n- para_lista() → devolve os valores em uma lista Python, do início ao fim\nVocê pode criar uma classe No para representar os nós.\n\"\"\"\n\n\nclass ListaLigada:\n    def __init__(self):\n        # implemente aqui\n        pass\n",
-  "fonteTeste": "def testar(ListaLigada, t):\n    lista = ListaLigada()\n    t.igual(lista.inicio, None, \"inicio — lista vazia não tem nó inicial: começa como None\")\n    t.igual(lista.para_lista(), [], \"para_lista() — lista vazia vira uma lista vazia\")\n\n    lista.inserir_fim(2)\n    lista.inserir_fim(3)\n    lista.inserir_inicio(1)\n    t.igual(lista.para_lista(), [1, 2, 3], \"inserir_fim(2), inserir_fim(3) e inserir_inicio(1) — a ordem dos nós é 1 → 2 → 3\")\n    t.igual(lista.inicio.valor, 1, \"inicio.valor — inserir_inicio troca a 'cabeça' da lista\")\n    t.igual(lista.inicio.proximo.valor, 2, \"proximo — o primeiro nó aponta para o segundo\")\n    t.igual(lista.inicio.proximo.proximo.valor, 3, \"proximo — o segundo nó aponta para o terceiro\")\n    t.igual(lista.inicio.proximo.proximo.proximo, None, \"último nó — seu proximo é None, marcando o fim da lista\")\n",
-  "gabarito": "class No:\n    def __init__(self, valor, proximo=None):\n        self.valor = valor\n        self.proximo = proximo\n\n\nclass ListaLigada:\n    def __init__(self):\n        self.inicio = None\n\n    def inserir_inicio(self, valor):\n        self.inicio = No(valor, self.inicio)\n\n    def inserir_fim(self, valor):\n        novo = No(valor)\n        if self.inicio is None:\n            self.inicio = novo\n            return\n        atual = self.inicio\n        while atual.proximo is not None:\n            atual = atual.proximo\n        atual.proximo = novo\n\n    def para_lista(self):\n        valores = []\n        atual = self.inicio\n        while atual is not None:\n            valores.append(atual.valor)\n            atual = atual.proximo\n        return valores\n"
- },
- {
-  "id": "20",
-  "categoria": "Algoritmos e estruturas de dados",
-  "titulo": "Par com soma (dois ponteiros)",
-  "enunciado": "Lista crescente. Ache dois valores de índices diferentes que somam o alvo.",
-  "dica": "Um ponteiro no início e outro no fim. Se a soma for menor que o alvo, avance o da esquerda; se for maior, recue o da direita.",
-  "funcoes": [
-   "par_com_soma"
-  ],
-  "codigoInicial": "\"\"\"\n20 — Par com soma (dois ponteiros)\nnumeros já está em ordem crescente.\nRetorne um par [x, y] (x <= y) cuja soma é alvo, ou None se não existir.\nVocê pode retornar uma lista ou uma tupla.\nCada valor pode ser usado só uma vez (índices diferentes).\n\"\"\"\n\n\ndef par_com_soma(numeros, alvo):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(par_com_soma, t):\n    def par(valor):\n        # Aceita lista ou tupla: [2, 7] e (2, 7) são respostas válidas.\n        return list(valor) if type(valor) is tuple else valor\n\n    t.igual(par(par_com_soma([1, 2, 4, 7, 11], 9)), [2, 7], \"par_com_soma([1, 2, 4, 7, 11], 9) — caso básico: 2 + 7 = 9 numa lista crescente\")\n    t.igual(par_com_soma([1, 2, 3], 10), None, \"sem par possível — os ponteiros se encontram sem achar a soma: retorne None\")\n    t.igual(par(par_com_soma([0, 1, 5], 5)), [0, 5], \"incluindo zero — 0 é um valor válido: 0 + 5 = 5\")\n    t.igual(par(par_com_soma([-3, 1, 4, 9], 5)), [1, 4], \"com negativo — o -3 não forma par com ninguém, e o único par possível é 1 + 4\")\n    t.igual(par(par_com_soma([4, 4], 8)), [4, 4], \"valores iguais — dois itens iguais em índices diferentes formam par (4 + 4)\")\n    t.igual(par_com_soma([8], 8), None, \"um único item — não forma par: não use o mesmo índice duas vezes\")\n",
-  "gabarito": "def par_com_soma(numeros, alvo):\n    esquerda, direita = 0, len(numeros) - 1\n    while esquerda < direita:\n        soma = numeros[esquerda] + numeros[direita]\n        if soma == alvo:\n            return [numeros[esquerda], numeros[direita]]\n        if soma < alvo:\n            esquerda += 1\n        else:\n            direita -= 1\n    return None\n"
- },
- {
-  "id": "21",
-  "categoria": "Algoritmos e estruturas de dados",
   "titulo": "Elemento mais frequente",
   "enunciado": "Use um dicionário de contagem. Em empate, fique com quem apareceu primeiro.",
   "dica": "Um dicionário (ou collections.Counter) conta as ocorrências. Percorra a lista de novo para achar o máximo, ficando com o primeiro em caso de empate.",
@@ -272,18 +246,5 @@ window.EXERCICIOS_DADOS = [
   "codigoInicial": "\"\"\"\n21 — Elemento mais frequente (dicionário)\nRetorne o valor que mais aparece na lista.\nEm empate, retorne o que apareceu primeiro.\nLista vazia → None.\n\"\"\"\n\n\ndef mais_frequente(lista):\n    # implemente aqui\n    pass\n",
   "fonteTeste": "def testar(mais_frequente, t):\n    t.igual(mais_frequente([1, 3, 1, 3, 1]), 1, \"mais_frequente([1, 3, 1, 3, 1]) — contagem: o 1 aparece 3 vezes, mais que o 3 (2 vezes)\")\n    t.igual(mais_frequente([\"a\", \"b\", \"b\", \"a\"]), \"a\", \"empate — vence quem aparece primeiro na lista\")\n    t.igual(mais_frequente([7]), 7, \"um item — ele mesmo é o mais frequente\")\n    t.igual(mais_frequente([]), None, \"lista vazia — não há elemento mais frequente: retorne None\")\n    t.igual(mais_frequente([\"x\", \"y\", \"y\", \"z\"]), \"y\", \"textos — funciona com qualquer tipo: 'y' aparece duas vezes\")\n",
   "gabarito": "def mais_frequente(lista):\n    if not lista:\n        return None\n\n    contagem = {}\n    for valor in lista:\n        contagem[valor] = contagem.get(valor, 0) + 1\n\n    mais = lista[0]\n    for valor in lista:\n        if contagem[valor] > contagem[mais]:\n            mais = valor\n    return mais\n"
- },
- {
-  "id": "22",
-  "categoria": "Algoritmos e estruturas de dados",
-  "titulo": "Percurso em ordem (árvore)",
-  "enunciado": "Visite esquerda, depois o nó, depois a direita. Árvore vazia retorna [].",
-  "dica": "Função recursiva: em_ordem(raiz.esquerda) + [raiz.valor] + em_ordem(raiz.direita). Caso base: None → [].",
-  "funcoes": [
-   "em_ordem"
-  ],
-  "codigoInicial": "\"\"\"\n22 — Percurso em ordem (árvore binária)\nCada nó tem os atributos valor, esquerda e direita (os filhos podem ser None).\nRetorne os valores em ordem: esquerda → nó → direita.\nÁrvore vazia (None) → [].\n\"\"\"\n\n\ndef em_ordem(raiz):\n    # implemente aqui\n    pass\n",
-  "fonteTeste": "def testar(em_ordem, t):\n    # No(valor, esquerda=None, direita=None) é fornecido pelos testes.\n    t.igual(em_ordem(None), [], \"árvore vazia (None) — caso base da recursão: devolve []\")\n    t.igual(em_ordem(No(5)), [5], \"só a raiz — sem filhos, o resultado é apenas o valor da raiz\")\n\n    arvore = No(4, No(2, No(1), No(3)), No(6, No(5), No(7)))\n    t.igual(em_ordem(arvore), [1, 2, 3, 4, 5, 6, 7], \"BST de 1 a 7 — esquerda → nó → direita devolve os valores em ordem crescente\")\n\n    inclinada = No(3, No(2, No(1), None), None)\n    t.igual(em_ordem(inclinada), [1, 2, 3], \"árvore só para a esquerda — a recursão desce até o menor valor antes de subir\")\n",
-  "gabarito": "def em_ordem(raiz):\n    if raiz is None:\n        return []\n    return em_ordem(raiz.esquerda) + [raiz.valor] + em_ordem(raiz.direita)\n"
  }
 ];
